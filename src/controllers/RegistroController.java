@@ -45,9 +45,13 @@ public class RegistroController {
     });
   }
 
-  public void handleVoltar(ActionEvent event) throws IOException {
-    Scene loginScene = ScreenUtil.getScene("Login");
-    ScreenUtil.setSceneInMainStage(loginScene);
+  public void handleVoltar(ActionEvent event) {
+    try {
+      Scene loginScene = ScreenUtil.getScene("Login");
+      ScreenUtil.setSceneInMainStage(loginScene);
+    } catch (IOException e) {
+      new AlertError(e.getMessage());
+    }
   }
 
   public void handleRegistrar(ActionEvent event) {
